@@ -1,0 +1,26 @@
+{
+    "stores": [
+        {
+            "name": "Georgina",
+            "price": "5 reais a pequena. 10 reais a grande",
+            "email": "georgina@georgina.com",
+            "tel": "55555555",
+            "address": "Rua Queirós Júnior, Jacarepaguá, Rio de Janeiro - RJ, 22775, Brazil",
+            "coord": [
+                -43.3944231,
+                -22.9708458
+            ]
+        },
+        {
+            "name": "Augusto",
+            "price": "50 reais a pequena. 10 reais a grande",
+            "email": "augusto@georgina.com",
+            "tel": "1234567",
+            "address": "Rua Oliveira Martins, Jardim Sulacap, Rio de Janeiro - RJ, 21740-000, Brazil",
+            "coord": [
+                -43.39709714999999,
+                -22.886136299999997
+            ]
+        }
+    ]
+}
