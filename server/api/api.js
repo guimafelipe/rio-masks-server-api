@@ -49,7 +49,7 @@ router.get('/stores', async (req, res) => {
 
 router.post('/stores', async (req, res) => {
     console.log(req.body);
-    mailOptions.text = JSON.stringify(req.body);
+    mailOptions.text = JSON.stringify(req.body, null, 4);
     transporter.sendMail(mailOptions, (err, info) => {
         if(err){
             console.log(err);
