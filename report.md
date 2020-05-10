@@ -75,7 +75,62 @@ O nosso programa lê esse arquivo JSON, e para as lojas que não tem a coordenad
 para o OpenCage uma requisição com este endereço, e obtém as coordenadas da mesma e substutui no arquivo.
 Por fim, envia os dados corretamente e o arquivo fica salvo no servidor com todas as coordenadas já cadastradas.
 
+> Observação: O serviço de Geocoding não é gratuito. É limitado em 2500 chamadas de API por mês, depois disso tem que pagar.
+Outros serviços existem disponíveis, como o do Google por exemplo. Mas nenhum deles é gratuito. Então, quanto menos chamadas
+a gente fizer pra esse serviço, melhor.
+> 
+> O arquivo JSON atualizado com as coordenadas é fácil de se conseguir usando o console do heroku no site. Então a gente pode 
+pegar a versão atualizada com as coordenadas da loja e já usar na próxima atualização manual, reduzindo bastante a quantidade
+de chamadas à API de GeoCoding.  
 
+
+Para atualizar o arquivo, a gente só precisa atualizar ele aqui no github, e depois atualizar no heroku. O heroku vai ver os 
+arquivos aqui no github e usá-los para rodar o site no servidor deles.
+
+## Alternativas
+
+Existem outras tecnologias que poderiam ser usadas para o projeto e foram consideradas por mim também. Vou citá-las nessa
+sessão.
+
+### Wix, wordpress e derivados
+
+Esses serviços oferecem uma boa estrutura pra se montar sites bonitos sem muito esforço, porém, não sei como seria a liberdade
+que teríamos para mexer no código javascript desses serviços para fazer a manipulação do site. Isso não significa que não
+possamos mudar o projeto para uma dessas plataformas, mas como era um projeto pequeno eu acabei optando por ter liberdade
+de construí-lo de um jeito que dê pra saber tudo que está acontecendo.
+Acho que o mais importante é a API de backend, que de fato disponibiliza as informações de lojistas pro nosso front-end. É
+possível que a gente consiga usar essa API ainda mesmo usando serviços como o Wix e Wordpress.
+
+### Outros frameworks de backend
+
+como disse acima, dava pra usar PHP, Ruby, Python e etc para fazer a API que disponibiliza a informação das lojas cadastradas. E na minha opinião, não faria muita diferença. Optei por node por ser bem leve e fácil de subir para serviços
+de hospedagem como o heroku. Além de ser bem difícil dar problema com dependências de bibliotecas. Então dá pra baixar o projeto em qualquer computador e trabalhar nele normalmente.
+
+### Outros serviços de GeoCoding
+
+Como disse, o serviço de GeoCoding é bem limitado. O que esse serviço faz basicamente é receber um texto (Rua Coroados, Senador Camará, Rio de janeiro por exemplo), e retornar as coordenadas dessa localização no mapa.
+Vale a pena pesquisar outros serviços e achar o mais barato, mas dentre os que eu vi, o OpenCage foi o mais atraente pro nosso uso.
+
+### Uso de Banco de Dados
+
+Uma alternativa a deixar as informações dos lojistas num arquivo JSON, é popular um banco de dados (MongoDB por exemplo) e
+deixar as informações nesse banco. O problema é que talvez fique mais difícil mudar as informações por pessoas que são leigas
+em computação. A alternativa mais viável é deixar o banco em um repositório e servidor gratuito de banco de dados (MongoLabs por exemplo) e ir atualizando manualmente pela interface deles.
+
+## To Do list
+
+Por fim, algumas coisas que ainda faltam fazer no projeto depois desse protótipo:
+
+- Popular com dados de lojistas.
+- Deixar o site mais bonito:
+  - Melhorar o acabamento do CSS
+  - Melhorar as informações do site
+  - Melhorar as animações do mapa
+  - Ajustar quando mostrar as informações da loja
+  - Melhorar cores e acabamento no geral (css)
+- Melhorar os forms de contato do lojista
+- Aumentar a segurança (já que um logista pode spammar emails pra gente preenchendo o formulário repetidas vezes)
+- Tentar limitar o uso de Geocoding e suas alternativas
 
 
 
